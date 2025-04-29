@@ -1,5 +1,5 @@
 import axios from "axios";
-// import fallbackData from "../fallback.json" assert { type: "json" };
+import { fallback } from "../fallback.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -19,7 +19,7 @@ export const fetchMovies = async (page = 1) => {
     return data.results;
   } catch (error) {
     console.error("Error fetching movies from TMDB:", error);
-    return [];
+    return fallback;
   }
 };
 
